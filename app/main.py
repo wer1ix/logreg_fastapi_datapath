@@ -44,7 +44,7 @@ def procesar_input(data: dict):
 
 @app.post("/predict")
 def predecir_proceso(data: PredictionInput):
-    entrada = data.dict()
+    entrada = data.model_dump()
     df = procesar_input(entrada)
 
     # Predicción
@@ -81,7 +81,7 @@ def obtener_prediccion(id: str):
 def actualizar_prediccion(id: str, data: PredictionInput):
     if id not in historial_predicciones:
         raise HTTPException(status_code=404, detail="ID no encontrado")
-    entrada = data.dict()
+    entrada = data.model_dump()
     df = procesar_input(entrada)
     pred = int(modelo.predict(df)[0])
     prob = round(float(modelo.predict_proba(df)[0][1]), 4)
