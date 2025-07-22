@@ -81,6 +81,7 @@ docker run -p 8000:8000 fastapi-model-app
 ---
 
 ## Pendientes / cosas a mejorar
+- Hacer troubleshooting
 - Agregar logging para ver errores con más detalle
 - Mejorar robustez del manejo de columnas al hacer predicciones
 - Posiblemente rehacer la serialización del modelo con joblib o en el mismo entorno que la API
